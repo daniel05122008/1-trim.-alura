@@ -2,40 +2,57 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site de Carros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carros Acessíveis</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Bem-vindo ao Mundo dos Carros</h1>
-    <p>Explore diferentes modelos com acessibilidade em mente.</p>
+    <h1>Carros para Todos</h1>
+    <p>Explore modelos de carros com foco em acessibilidade e conforto.</p>
   </header>
 
   <main>
-    <section class="carro">
-      <h2>Carro Esportivo</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Ferrari_F8_Tributo_IMG_4078.jpg/640px-Ferrari_F8_Tributo_IMG_4078.jpg" alt="Carro esportivo vermelho Ferrari F8 Tributo" />
-      <p>Este carro esportivo oferece alta performance e design moderno.</p>
-    </section>
-
-    <section class="carro">
-      <h2>SUV Familiar</h2>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/2021_Kia_Sorento_SX_Prestige_AWD%2C_front_12.27.21.jpg/640px-2021_Kia_Sorento_SX_Prestige_AWD%2C_front_12.27.21.jpg" alt="SUV Kia Sorento prata" />
-      <p>Ideal para famílias, com amplo espaço interno e segurança.</p>
+    <section class="galeria">
+      <img src="carro1.jpg" alt="Carro esportivo vermelho em estrada aberta" />
+      <img src="carro2.jpg" alt="Carro SUV azul em ambiente urbano moderno" />
     </section>
   </main>
 
-  <button id="toggleTheme" aria-label="Alternar contraste" title="Alternar contraste">🔆</button>
+  <div class="acessibilidade">
+    <button id="contraste">Alternar Contraste</button>
+    <button id="aumentar-fonte">A+</button>
+    <button id="diminuir-fonte">A−</button>
+  </div>
+
+  <footer>
+    <p>Site acessível para todos. Contato: contato@carros.com</p>
+  </footer>
 
   <script>
-    const btn = document.getElementById('toggleTheme');
-    let darkMode = false;
+    const body = document.body;
+    const contrasteBtn = document.getElementById("contraste");
+    const aumentarBtn = document.getElementById("aumentar-fonte");
+    const diminuirBtn = document.getElementById("diminuir-fonte");
 
-    btn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      darkMode = !darkMode;
-      btn.textContent = darkMode ? '🌙' : '🔆';
+    let contrasteAtivo = false;
+    let fonteAtual = 100;
+
+    contrasteBtn.addEventListener("click", () => {
+      contrasteAtivo = !contrasteAtivo;
+      body.classList.toggle("contraste");
+    });
+
+    aumentarBtn.addEventListener("click", () => {
+      fonteAtual += 10;
+      document.documentElement.style.fontSize = fonteAtual + "%";
+    });
+
+    diminuirBtn.addEventListener("click", () => {
+      if (fonteAtual > 60) {
+        fonteAtual -= 10;
+        document.documentElement.style.fontSize = fonteAtual + "%";
+      }
     });
   </script>
 </body>
