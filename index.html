@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carros</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site de Carros</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Carros</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Os melhores carros do ano</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-    </main>
-    <button id="toggle-background" class="toggle-background">Mudar cor de fundo</button>
+  <header>
+    <h1>Bem-vindo ao Mundo dos Carros</h1>
+    <p>Explore diferentes modelos com acessibilidade em mente.</p>
+  </header>
 
-    <script src="script.js"></script>
+  <main>
+    <section class="carro">
+      <h2>Carro Esportivo</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Ferrari_F8_Tributo_IMG_4078.jpg/640px-Ferrari_F8_Tributo_IMG_4078.jpg" alt="Carro esportivo vermelho Ferrari F8 Tributo" />
+      <p>Este carro esportivo oferece alta performance e design moderno.</p>
+    </section>
+
+    <section class="carro">
+      <h2>SUV Familiar</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/2021_Kia_Sorento_SX_Prestige_AWD%2C_front_12.27.21.jpg/640px-2021_Kia_Sorento_SX_Prestige_AWD%2C_front_12.27.21.jpg" alt="SUV Kia Sorento prata" />
+      <p>Ideal para famílias, com amplo espaço interno e segurança.</p>
+    </section>
+  </main>
+
+  <button id="toggleTheme" aria-label="Alternar contraste" title="Alternar contraste">🔆</button>
+
+  <script>
+    const btn = document.getElementById('toggleTheme');
+    let darkMode = false;
+
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      darkMode = !darkMode;
+      btn.textContent = darkMode ? '🌙' : '🔆';
+    });
+  </script>
 </body>
 </html>
